@@ -1,0 +1,9 @@
+---
+
+- name: run show commands
+  telnet:
+    port: 22
+    timeout: 4
+    command:
+      - quit
+      
