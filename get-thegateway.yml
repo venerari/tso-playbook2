@@ -1,0 +1,6 @@
+---
+ -name: Get the Gateway ip
+  hosts: all 
+  become: true 
+  roles:
+    - get-thegateway   

@@ -1,0 +1,22 @@
+---
+users:
+  - john
+  - rey
+  - alex
+  - shermy
+
+password1: "{{ 'Abcd123' | password_hash('sha512') }}"
+
+line1: "10.193.176.5 saedev01 rus_sae_app_svc_01 sdcgigdcapmdw01"
+line2: "10.193.176.6 saedev02 rus_sae_app_svc_02 sdcgigdcapmdw02"
+line3: "10.77.30.50 rus_any_ldap_bal_01"
+line4: "10.193.176.5 ldapdev01 rus_ldap_app_svc_01"
+line5: "10.193.176.6 ldapdev02 rus_ldap_app_svc_02"
+
+userfull: "John Doe"
+username: john
+sx: male
+
+remote1: vm1
+port1: 22
+port2: 80

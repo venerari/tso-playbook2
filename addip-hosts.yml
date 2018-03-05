@@ -1,0 +1,20 @@
+---
+ - hosts: all 
+   become: true 
+   
+  vars_prompt:
+
+    - name: "ip1"
+      prompt: "What is the ip address?"
+      private: no
+      
+    - name: "hostname1"
+      prompt: "What is the hostname?"
+      private: no
+      
+    - name: "domain1"
+      prompt: "What is the domain name?"
+      private: no      
+      
+   roles:
+     - addip-hosts

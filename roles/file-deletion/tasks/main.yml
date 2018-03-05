@@ -1,0 +1,3 @@
+---
+- name: create a file
+  file: path=/root/text1.txt state=absent

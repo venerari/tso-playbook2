@@ -1,0 +1,4 @@
+---
+- name: Remove Software
+  yum: name={{ software }} state=removed
+  when: ansible_os_family == "RedHat"

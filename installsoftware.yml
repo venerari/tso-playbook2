@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: true
+
+  vars_prompt:
+
+    - name: "software"
+      prompt: "What is the software name to install (e.g. nginx)?"
+      private: no
+  
+  roles:
+    - installsoftware

@@ -1,0 +1,4 @@
+---
+- name: Hello User
+  debug:
+    msg: "Hello User {{ username | upper }}! You are a {{ sx }} and your fullname is {{ userfull | upper }}." 

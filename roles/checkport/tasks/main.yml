@@ -1,0 +1,7 @@
+---
+
+- name: Check if remote host port {{ port }}
+  wait_for: host={{ server }} port={{ port }} timeout=4
+  ignore_errors: True
+
+

@@ -1,0 +1,28 @@
+#jinja2:lstrip_blocks: True
+<html>
+  <head>
+    <title>Get the server info</title>
+  </head>
+  <body bgcolor=white>
+
+    <table border="0" cellpadding="10">
+      <tr>
+        <td>
+{{ ansible_hostname }}
+        </td>
+        <td>
+{% if users is defined and users %}
+{% for user in users %}{{ user }}
+{% endfor %}
+{% else %}
+   No user defined!
+{% endif %}
+        </td>
+      </tr>
+    </table>
+
+    <p>This is the home page for the HelloWorld Web application. </p>
+    <p>To prove that they work, you can execute either of the following links:
+
+  </body>
+</html>

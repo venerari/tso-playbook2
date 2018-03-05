@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: true
+  
+  vars_prompt:
+
+    - name: "software"
+      prompt: "What is the software name to remove?"
+      private: no  
+  
+  roles:
+    - removesoftware
