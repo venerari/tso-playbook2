@@ -1,7 +1,9 @@
 #!/bin/bash
 
 #create the repo
-sh -c 'echo -e "[centos]\nname=CentOS $releasever - $basearch\nbaseurl=http://mirror.centos.org/centos/7/os/\$basearch/\nenabled=1\ngpgcheck=1\ngpgkey=http://mirror.centos.org/centos/7/os/\$basearch/RPM-GPG-KEY-CentOS-7" > /etc/yum.repos.d/centos.repo'
+if ! [ -f /etc/yum.repos.d/centos.repo ]; then
+  sh -c 'echo -e "[centos]\nname=CentOS $releasever - $basearch\nbaseurl=http://mirror.centos.org/centos/7/os/\$basearch/\nenabled=1\ngpgcheck=1\ngpgkey=http://mirror.centos.org/centos/7/os/\$basearch/RPM-GPG-KEY-CentOS-7" > /etc/yum.repos.d/centos.repo'
+fi
 #download epel-release 7-11, this link might get broken from time to time, find another one that wil work
 wget -nc https://archive.fedoraproject.org/pub/epel/7Server/x86_64/Packages/e/epel-release-7-11.noarch.rpm
 #install it
@@ -20,7 +22,7 @@ awk -F',' 'FNR > 1 { print "sshpass ssh-copy-id -o StrictHostKeyChecking=no " $1
 #change it to executable
 chmod u+x sshcopy
 #run it
-./sshcopy
+#./sshcopy
 
 awk -F',' 'FNR > 1 { print $1 }' server.csv > inventory
 
