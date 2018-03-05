@@ -3,6 +3,7 @@
 - name: run show commands
   telnet:
     port: 22
-    timeout: 4
-    
+    timeout: 2
+    command:
+      - quit
       
