@@ -3,6 +3,7 @@
 - name: run show commands
   telnet:
     host: sdcgigdcapmdw02
+    pause: 1
     port: 22
     timeout: 2
     command:
