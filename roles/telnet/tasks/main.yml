@@ -2,6 +2,7 @@
 
 - name: run show commands
   telnet:
+    host: sdcgigdcapmdw02
     port: 22
     timeout: 2
     command:
