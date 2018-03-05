@@ -1,11 +1,14 @@
 ---
 
-- name: run show commands
-  telnet:
+- name: Check all port numbers are accessible from current host
+  wait_for:
     host: sdcgigdcapmdw02
-    pause: 1
-    port: 22
-    timeout: 2
-    command:
-      - quit
-      
+    port: "{{ item }}"
+    state: started         # Port should be open
+    delay: 0               # No wait before first check (sec)
+    timeout: 2             # Stop checking after timeout (sec)
+  ignore_errors: yes
+  with_items:
+    - 443
+    - 80
+    - 22
