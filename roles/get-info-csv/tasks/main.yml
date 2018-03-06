@@ -58,7 +58,7 @@
   
 - name: Check if remote {{ item.host }} host port {{ item.port }}
   wait_for: host={{ item.host }} port={{ item.port }} timeout=1
-    with_items:
+  with_items:
     - { host: 'sdcgigdcapmdw02', port: '22' }
     - { host: 'sdcgigdcapmdw02', port: '800' }
   when: ansible_hostname == "sdcgigdcapmdw01"
