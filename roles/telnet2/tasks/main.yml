@@ -1,0 +1,13 @@
+---
+- name: Check all port numbers are accessible from current host
+  wait_for:
+    host: "{{ item.host }}"
+    port: "{{ item.port }}"
+    state: started         # Port should be open
+    delay: 0               # No wait before first check (sec)
+    timeout: 2             # Stop checking after timeout (sec)
+  ignore_errors: yes
+  with_items:
+    - { host: 'sdcgigdcapmdw02', port: '22' }
+    - { host: 'sdcgigdcapmdw02', port: '80' }
+  when: ansible_hostname == "sdcgigdcapmdw01"
