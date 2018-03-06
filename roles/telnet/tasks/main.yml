@@ -6,7 +6,7 @@
   register: result
   
 - debug: 
-    msg: "port {{ result.failed }}"
+    msg: "port failed: {{ result.failed }}"
   
 #- name: Save result in CSV
 #  shell: printf '{{ result.stdout }}'  >> /tmp/x_output.csv
