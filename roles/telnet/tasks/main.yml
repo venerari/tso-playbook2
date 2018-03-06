@@ -2,7 +2,7 @@
 
 - name: Check all port numbers are accessible from current host
   wait_for:
-    host: sdcgigdcapmdw02
+    host: sdcgigdcapmdw01
     port: "{{ item }}"
     state: started         # Port should be open
     delay: 0               # No wait before first check (sec)
