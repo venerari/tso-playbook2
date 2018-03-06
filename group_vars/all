@@ -18,6 +18,6 @@ username: john
 sx: male
 
 remote1: sdcgigdcapmdw01
-port1: 443
+port1: 22
 remote2: sdcgigdcapmdw02
 port2: 443
