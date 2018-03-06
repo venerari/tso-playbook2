@@ -17,6 +17,6 @@ userfull: "John Doe"
 username: john
 sx: male
 
-remote1: 10.193.177.215 
+remote1: sdcgigdcapmdw01
 port1: 22
 port2: 80
