@@ -5,7 +5,7 @@
   ignore_errors: True
   register: result
   
-- name: Save result in CSV
-  shell: printf '\n,test'  >> /tmp/{{ ansible_hostname }}_output.csv
-  args:
-    executable: /bin/bash
+#- name: Save result in CSV
+#  shell: printf '\n,test'  >> /tmp/{{ ansible_hostname }}_output.csv
+#  args:
+#    executable: /bin/bash
