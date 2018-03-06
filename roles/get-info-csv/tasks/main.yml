@@ -65,7 +65,7 @@
   ignore_errors: True
   register: result
 
-- name: Put open {{ item.host }} port {{ item.port }} in CSV
+- name: Put open in CSV
   shell: printf '\n,{{ item.host }},is open on port,{{ item.port }},'  >> /tmp/{{ ansible_hostname }}_output.csv
   args:
     executable: /bin/bash
@@ -75,7 +75,7 @@
   when: ansible_hostname == "sdcgigdcapmdw01"    
   when: result|succeeded
 
-- name: Put closed {{ item.host }} port {{ item.port }} in CSV
+- name: Put closed in CSV
   shell: printf '\n,{{ item.host }},is closed on port,{{ item.port }},'  >> /tmp/{{ ansible_hostname }}_output.csv
   args:
     executable: /bin/bash
