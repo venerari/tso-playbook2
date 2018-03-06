@@ -62,7 +62,7 @@
   register: result
   
 - name: Save result in CSV
-  shell: printf '\n,{{ result.stdout }}'  >> /tmp/{{ ansible_hostname }}_output.csv
+  shell: printf '\n,"{{ result.stdout }}"'  >> /tmp/{{ ansible_hostname }}_output.csv
   args:
     executable: /bin/bash
   
