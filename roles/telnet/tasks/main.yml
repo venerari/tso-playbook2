@@ -6,7 +6,7 @@
   register: result
   
 - debug: 
-    msg: "{{ result }}"
+    msg: "{{ result.changed }}"
   
 #- name: Save result in CSV
 #  shell: printf '{{ result.stdout }}'  >> /tmp/x_output.csv
