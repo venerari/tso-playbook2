@@ -19,5 +19,5 @@ sx: male
 
 remote1: sdcgigdcapmdw01
 port1: 443
-remote2: sdcgigdcapmdw01
-port2: 80
+remote2: sdcgigdcapmdw02
+port2: 443
