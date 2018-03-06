@@ -56,33 +56,30 @@
   args:
     executable: /bin/bash
   
-- name: Check if remote {{ item.host }} host port {{ item.port }}
+- name: Check remote
   wait_for: host={{ item.host }} port={{ item.port }} timeout=1
-  with_items:
+    with_items:
     - { host: 'sdcgigdcapmdw02', port: '22' }
     - { host: 'sdcgigdcapmdw02', port: '800' }
-  when: ansible_hostname == "sdcgigdcapmdw01"
   ignore_errors: True
   register: result
 
-- name: Put open in CSV
+- name: Put open on csv
   shell: printf '\n,{{ item.host }},is open on port,{{ item.port }},'  >> /tmp/{{ ansible_hostname }}_output.csv
   args:
     executable: /bin/bash
   with_items:
     - { host: 'sdcgigdcapmdw02', port: '22' }
     - { host: 'sdcgigdcapmdw02', port: '800' }
-  when: ansible_hostname == "sdcgigdcapmdw01"    
   when: result|succeeded
 
-- name: Put closed in CSV
+- name: Put closed on csv
   shell: printf '\n,{{ item.host }},is closed on port,{{ item.port }},'  >> /tmp/{{ ansible_hostname }}_output.csv
   args:
     executable: /bin/bash
   with_items:
     - { host: 'sdcgigdcapmdw02', port: '22' }
     - { host: 'sdcgigdcapmdw02', port: '800' }
-  when: ansible_hostname == "sdcgigdcapmdw01"    
   when: result|failed
 
 - name: delete local /tmp/fetched
