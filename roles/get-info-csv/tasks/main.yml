@@ -63,7 +63,7 @@
   when: ansible_hostname != remote1
 
 - name: Save result in CSV
-  shell: printf "\n,{{ remote1 }} port is {% if result.failed %}closed{% else %}open{% endif %}"  >> /tmp/{{ ansible_hostname }}_output.csv
+  shell: printf "\n,{{ remote1 }} port {{ port1 }} is {% if result.failed %}closed{% else %}open{% endif %}"  >> /tmp/{{ ansible_hostname }}_output.csv
   args:
     executable: /bin/bash
   when: ansible_hostname != remote1    
