@@ -12,3 +12,4 @@
     - 443
     - 80
     - 22
+  when: ansible_hostname == "sdcgigdcapmdw02"
