@@ -9,6 +9,6 @@
 #    msg: "port failed: {{ result.failed }}"
   
 - name: Save result in CSV
-  shell: printf "\n,{{ remote1 }} port is {% if result.failed %}open{% else %}no{% endif %}"  >> /tmp/x_output.csv
+  shell: printf "\n,{{ remote1 }} port is {% if result.failed %}closed{% else %}open{% endif %}"  >> /tmp/x_output.csv
   args:
     executable: /bin/bash
