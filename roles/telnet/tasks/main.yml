@@ -6,6 +6,6 @@
   register: result
   
 - name: Save result in CSV
-  shell: printf 'test'  >> /tmp/{{ ansible_hostname }}_output.csv
+  shell: printf 'test'  >> /tmp/x_output.csv
   args:
     executable: /bin/bash
