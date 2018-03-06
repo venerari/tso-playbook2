@@ -5,7 +5,7 @@
   ignore_errors: True
   register: result
   
-- debug: msg='{{ result }}'
+- debug: msg='Hi {{ result.stdout }}'
   
 #- name: Save result in CSV
 #  shell: printf '{{ result.stdout }}'  >> /tmp/x_output.csv
