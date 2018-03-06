@@ -1,8 +1,8 @@
 ---
  - debug: msg="The atomic number of Helium is {{ lookup('csvfile', 'He file=elements.csv delimiter=,') }}"
-   when: ansible_hostname == "sdcgigdcapmdw01"
+   delegate_to: localhost
    run_once: true
    
  - debug: msg="The atomic mass of Lithium is {{ lookup('csvfile', 'Li file=elements.csv delimiter=, col=2') }}" 
-   when: ansible_hostname == "sdcgigdcapmdw01"
+   delegate_to: localhost
    run_once: true
