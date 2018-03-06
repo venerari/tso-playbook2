@@ -1,15 +1,12 @@
 ---
 
-- name: Check all port numbers are accessible from current host
-  wait_for:
-    host: sdcgigdcapmdw02
-    port: "{{ item }}"
-    state: started         # Port should be open
-    delay: 0               # No wait before first check (sec)
-    timeout: 2             # Stop checking after timeout (sec)
-  ignore_errors: yes
-  with_items:
-    - 443
-    - 80
-    - 22
-  when: ansible_hostname != "sdcgigdcapmdw02"
+- name: Check if remote {{ remote1 }} host port {{ port1 }}
+  wait_for: host={{ remote1 }} port={{ port1 }} timeout=1
+  ignore_errors: True
+  register: result
+  
+- name: Save result in CSV
+  #shell: printf '\n,{{ result.stdout_lines }}'  >> /tmp/{{ ansible_hostname }}_output.csv
+  shell: printf '\n,test'  >> /tmp/{{ ansible_hostname }}_output.csv
+  args:
+    executable: /bin/bash
