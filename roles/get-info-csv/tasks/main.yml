@@ -56,7 +56,7 @@
   args:
     executable: /bin/bash
   
-- name: Check if remote {{ remote1 }} host port {{ port2 }}
+- name: Check if remote {{ item.host }} host port {{ item.port }}
   wait_for: host={{ item.host }} port={{ item.port }} timeout=1
     with_items:
     - { host: 'sdcgigdcapmdw02', port: '22' }
@@ -65,7 +65,7 @@
   ignore_errors: True
   register: result
 
-- name: Put {{ remote1 }} port {{ port1 }} in CSV
+- name: Put open {{ item.host }} port {{ item.port }} in CSV
   shell: printf '\n,{{ item.host }},is open on port,{{ item.port }},'  >> /tmp/{{ ansible_hostname }}_output.csv
   args:
     executable: /bin/bash
@@ -75,7 +75,7 @@
   when: ansible_hostname == "sdcgigdcapmdw01"    
   when: result|succeeded
 
-- name: Put {{ remote1 }} port {{ port1 }} in CSV
+- name: Put closed {{ item.host }} port {{ item.port }} in CSV
   shell: printf '\n,{{ item.host }},is closed on port,{{ item.port }},'  >> /tmp/{{ ansible_hostname }}_output.csv
   args:
     executable: /bin/bash
