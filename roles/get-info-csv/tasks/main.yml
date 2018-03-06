@@ -62,7 +62,7 @@
   register: result
   when: ansible_hostname != remote1 
 
-- debug: msg=result.stdout
+- debug: msg={{result.stdout}}
 
 #- name: Put {{ remote1 }} port {{ port1 }} in CSV
 #  shell: printf '\n,{{ remote1 }},is open on port,{{ port1 }},'  >> /tmp/{{ ansible_hostname }}_output.csv
