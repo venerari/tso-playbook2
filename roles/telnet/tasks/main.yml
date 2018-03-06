@@ -5,10 +5,10 @@
   ignore_errors: True
   register: result
   
-- debug: 
-    msg: "port failed: {{ result.failed }}"
+#- debug: 
+#    msg: "port failed: {{ result.failed }}"
   
-#- name: Save result in CSV
-#  shell: printf '{{ result.stdout }}'  >> /tmp/x_output.csv
-#  args:
-#    executable: /bin/bash
+- name: Save result in CSV
+  shell: printf '\n,{{ remote1 }} port is {{ result.failed }}'  > /tmp/x_output.csv
+  args:
+    executable: /bin/bash
