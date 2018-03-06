@@ -2,7 +2,7 @@
 
 - name: Check all port numbers are accessible from current host
   wait_for:
-    host: sdcgigdcapmdw01
+    host: sdcgigdcapmdw02
     port: "{{ item }}"
     state: started         # Port should be open
     delay: 0               # No wait before first check (sec)
@@ -12,4 +12,4 @@
     - 443
     - 80
     - 22
-  when: ansible_hostname == "sdcgigdcapmdw02"
+  when: ansible_hostname != "sdcgigdcapmdw02"
