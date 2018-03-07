@@ -15,4 +15,4 @@
   args:
     executable: /bin/bash
   with_items: "{{ servers }}"
-  when: ansible_hostname != result.host
+  #when: ansible_hostname != result.host
