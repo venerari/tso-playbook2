@@ -49,3 +49,17 @@ colours:
         - Basketball
         - Carrots
         - Oranges
+
+  people:
+    - name: Mike
+      fav_colour: Blue
+    - name: Kyle
+      fav_colour: Yellow
+    - name: Shea
+      fav_colour: Blue
+    - name: Aly
+      fav_colour: Yellow
+    - name: Daniyal
+      fav_colour: Yellow
+    - name: Tim
+      fav_colour: Orange
