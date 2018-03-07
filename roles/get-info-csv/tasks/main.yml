@@ -56,7 +56,7 @@
   args:
     executable: /bin/bash
   
-- name: Check if remote {{ server.name }} host port {{ server.port }}
+- name: Check if remote host port
   wait_for: host={{ server.name }} port={{ server.port }} timeout=1
   ignore_errors: True
   register: result
