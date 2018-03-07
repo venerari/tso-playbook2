@@ -22,7 +22,7 @@ port1: 22
 remote2: vm2
 port2: 443
 
-server:
+servers:
  - name: sdcgigdcapmdw01
    port: 80
  - name: sdcgigdcapmdw02
