@@ -2,4 +2,4 @@
 - name: Building the loop
   template:
     src=loop.j2
-    dest= ~/ansible/tso-playbook/loop.yml
+    dest=~/ansible/tso-playbook/loop.yml
