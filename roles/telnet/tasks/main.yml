@@ -7,7 +7,7 @@
     
 - debug: var=result
 
-- debug: msg={{ result[0] }}
+- debug: msg="{{ result[1] }}"
 
 #- name: show
 #  debug: msg={{result}}
