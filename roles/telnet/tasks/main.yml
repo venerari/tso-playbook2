@@ -5,7 +5,6 @@
   ignore_errors: True
   register: result-{{ server.name  }}
   with_items: "{{ server }}"
-  when: ansible_hostname != {{ server.name  }}
   
 - debug: 
     msg: "result-{{ server.name  }}"
