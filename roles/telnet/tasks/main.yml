@@ -5,7 +5,7 @@
      - shell: printf "\n,{{ item.host }} port {{ item.port }} is {% if item.failed %}closed{% else %}open{% endif %}"  >> /tmp/{{ ansible_hostname }}_output.csv
        args:
          executable: /bin/bash      
-       with_items: "{{ servers }}"
+  with_items: "{{ servers }}"
   ignore_errors: True
        #register: result
   
