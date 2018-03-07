@@ -1,5 +1,4 @@
 --- 
 - name: Check if remote host port
-  wait_for: host={{ servers.name }} port={{ servers.port }} timeout=1
-  ignore_errors: True
+  debug: msg="{{ servers.name }}"  
   with_items: "{{ servers }}"  
