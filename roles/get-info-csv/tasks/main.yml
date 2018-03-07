@@ -64,6 +64,7 @@
   args:
     executable: /bin/bash
   when: ansible_hostname != server.name
+  with_items: "{{ server }}"
 
 #- name: Check if remote {{ remote2 }} host port {{ port2 }}
 #  wait_for: host={{ remote2 }} port={{ port2 }} timeout=1
