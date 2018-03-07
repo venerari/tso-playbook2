@@ -19,5 +19,5 @@
   shell: echo test > /tmp/{{ ansible_hostname }}_output.csv
   args:
     executable: /bin/bash
-  with_items: "{{ result.results }}"
+  #with_items: "{{ result.results }}"
   
