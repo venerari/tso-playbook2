@@ -5,6 +5,8 @@
   register: result{{ item.name }}{{ item.port }}
   #when: ansible_hostname != {{ item.name }}
   with_items: "{{ servers }}"
+
+- name: show
   debug: msg=result{{ item.name }}{{ item.port }}
   
   
