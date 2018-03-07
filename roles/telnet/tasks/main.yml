@@ -5,9 +5,8 @@
   register: result
   with_items: "{{ servers }}"
     
-#- debug: var=result
-
-- debug: msg={{ result }}
+- debug: var=result
+#- debug: msg={{ result }}
 
 #- name: show
 #  debug: msg={{result}}
@@ -15,9 +14,10 @@
 #  debug: msg={{item}}
 #  with_items: "{{ result.results }}"
   
-#- name: Save remote port   
+- name: Save remote port   
 #  shell: printf "\n,{{ item.host }} port {{ item.port }} is {% if item.failed %}closed{% else %}open{% endif %}"  >> /tmp/{{ ansible_hostname }}_output.csv
-#  args:
-#    executable: /bin/bash
-#  with_items: "{{ result.results }}"
+  shell: echo {{ item.name }} > /tmp/{{ ansible_hostname }}_output.csv
+  args:
+    executable: /bin/bash
+  with_items: "{{ result.results }}"
   
