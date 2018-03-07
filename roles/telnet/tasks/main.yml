@@ -7,6 +7,8 @@
     
 - debug: var=result
 
+- debug: msg={{result['results']['item']['name']}}
+
 #- name: show
 #  debug: msg={{result}}
 #- name: Transfer var=result
