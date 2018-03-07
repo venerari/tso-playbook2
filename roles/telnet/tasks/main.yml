@@ -1,16 +1,11 @@
 --- 
 - name: Check if remote port
-  block:
-     - wait_for: host={{ item.name }} port={{ item.port }} timeout=1
-       ignore_errors: True
-     #- shell: printf "\n,{{ item.host }} port {{ item.port }} is {% if item.failed %}closed{% else %}open{% endif %}"  >> /tmp/{{ ansible_hostname }}_output.csv
-     #  args:
-     #    executable: /bin/bash      
-       with_items: "{{ servers }}"
-     
-       #register: result
-  
-#- debug: var=result
+  wait_for: host={{ item.name }} port={{ item.port }} timeout=1
+  ignore_errors: True
+  register: result
+  with_items: "{{ servers }}"
+    
+- debug: var=result
 
 #- name: show
 #  debug: msg={{result}}
