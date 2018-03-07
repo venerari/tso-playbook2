@@ -5,7 +5,7 @@
   register: result
   with_items: "{{ servers }}"
     
-#- debug: var=result
+- debug: var=result
 #- debug: msg={{ result }}
 
 #- name: show
@@ -19,5 +19,5 @@
   shell: echo test > /tmp/x_output.csv
   args:
     executable: /bin/bash
-  #with_items: "{{ result.results }}"
+  with_items: "{{ result.results }}"
   
