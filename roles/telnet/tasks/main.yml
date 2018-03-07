@@ -1,13 +1,14 @@
 ---
 
-- name: Check if remote {{ server.name  }} host port {{ server.port }}
-  wait_for: host={{ server.name  }} port={{ server.port }} timeout=1
-  ignore_errors: True
-  register: result-{{ server.name  }}
-  with_items: "{{ server }}"
+#  register: result-{{ server.name  }}
   
-- debug: 
-    msg: "result-{{ server.name  }}"
+- name: Check if remote host port
+  wait_for: host={{ servers.name }} port={{ servers.port }} timeout=1
+  ignore_errors: True
+  with_items: "{{ servers }}"  
+
+#- debug: 
+#    msg: "result-{{ server.name  }}"
   
 #- name: Save result in CSV
 #  shell: printf "\n,{{ remote1 }} port is {% if result.failed %}closed{% else %}open{% endif %}"  >> /tmp/x_output.csv
