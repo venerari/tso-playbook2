@@ -24,9 +24,9 @@ port2: 443
 
 servers:
   - name: "sdcgigdcapmdw01"
-    port: "443"
-  - name: "sdcgigdcapmdw02"
     port: "22"
+  #- name: "sdcgigdcapmdw02"
+  #  port: "22"
  
 ports:
  - 22
