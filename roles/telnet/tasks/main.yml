@@ -11,7 +11,7 @@
 #- name: show
 #  debug: msg={{result}}
 - name: Transfer var=result
-  debug: msg={{item.host}}
+  debug: msg={{item}}
   with_items: "{{ result.results }}"
   
 #- name: Save remote port   
