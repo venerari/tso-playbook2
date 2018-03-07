@@ -6,10 +6,13 @@
   #when: "{{ item.name }}" != ansible_hostname
   with_items: "{{ servers }}"
 
+- debug: var=result
+
 #- name: show
 #  debug: msg={{result}}
 - name: Transfer var=result
-  debug: msg={{result}}
+  debug: msg={{item.host}}
+  with_items: "{{ result.results }}"
   
 #- name: Save remote port   
 #  shell: printf "\n,{{ item.host }} port {{ item.port }} is {% if item.failed %}closed{% else %}open{% endif %}"  >> /tmp/{{ ansible_hostname }}_output.csv
