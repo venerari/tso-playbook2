@@ -2,9 +2,10 @@
 - name: Check if remote host port
   wait_for: host={{ item.name }} port={{ item.port }} timeout=1
   ignore_errors: True
-  register: "result{{ item.name }}{{ item.port }}"
+  register: result{{ item.name }}{{ item.port }}
   #when: ansible_hostname != {{ item.name }}
   with_items: "{{ servers }}"
+  debug: msg=result{{ item.name }}{{ item.port }}
   
   
 #- name: Save remote host port   
