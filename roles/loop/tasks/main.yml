@@ -1,0 +1,5 @@
+---
+- name: Building the loop
+  template:
+    src=loop.j2
+    dest=loop.yml
