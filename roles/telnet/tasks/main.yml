@@ -3,7 +3,7 @@
   wait_for: host={{ item.name }} port={{ item.port }} timeout=1
   ignore_errors: True
   register: result
-  #when: {{ item.name }} != ansible_hostname
+  when: "{{ item.name }}" != ansible_hostname
   with_items: "{{ servers }}"
 
 #- name: show
