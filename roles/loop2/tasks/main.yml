@@ -1,5 +1,5 @@
 ---
 - name: Building the loop
   template:
-    src=loop.j2
-    dest=/tmp/loop.yml
+    src=loop2.j2
+    dest=/tmp/loop2.yml
