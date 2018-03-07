@@ -11,5 +11,5 @@
   shell: printf "\n,{{ item.name }} port {{ item.port }} is {% if result{{ item.name }}{{ item.port }}.failed %}closed{% else %}open{% endif %}"  >> /tmp/{{ ansible_hostname }}_output.csv
   args:
     executable: /bin/bash
-  when: ansible_hostname != item.name
+  #when: ansible_hostname != item.name
   with_items: "{{ servers }}"
