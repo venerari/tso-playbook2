@@ -17,9 +17,9 @@ userfull: "John Doe"
 username: john
 sx: male
 
-remote1: sdcgigdcapmdw01
+remote1: vm1
 port1: 22
-remote2: sdcgigdcapmdw01
+remote2: vm2
 port2: 443
 
 servers:
