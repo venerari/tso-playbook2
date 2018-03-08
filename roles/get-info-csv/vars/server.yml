@@ -1,0 +1,4 @@
+---
+servers:
+  - name: centos
+    port: 22
