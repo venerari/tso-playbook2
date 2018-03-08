@@ -17,15 +17,6 @@ userfull: "John Doe"
 username: john
 sx: male
 
-remote1: vm1
-port1: 22
-remote2: vm2
-port2: 443
- 
-ports:
- - 22
- - 443
-
 colours:
     - name: Blue
       things:
