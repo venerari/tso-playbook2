@@ -1,5 +1,8 @@
 ---
 
+- name: Include server firewall to check
+  include_vars: server.yml
+
 - name: Get hostname
   shell: hostname > /tmp/{{ ansible_hostname }}_data.csv
   #no_log: true
