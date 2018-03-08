@@ -1,3 +1,5 @@
+#jinja2:lstrip_blocks: True
+
 {% for server in servers %}
 - name: Check if remote {{ server }} host port 22
   wait_for: host={{ server }} port=22 timeout=1
