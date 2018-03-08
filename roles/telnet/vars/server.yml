@@ -1,5 +1,5 @@
 ---
 servers:
-  - name: centos
+  - name: vm2
     port: 22
  
