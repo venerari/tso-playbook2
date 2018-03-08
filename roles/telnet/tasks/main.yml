@@ -2,10 +2,10 @@
 - name: Check if remote port
   wait_for: host={{ item.name }} port={{ item.port }} timeout=1
   ignore_errors: True
-  register: result
+  register: out
   with_items: "{{ servers }}"
     
-- debug: var=result
+- debug: var=out
 #- debug: msg={{ result }}
 
 #- name: show
@@ -19,5 +19,5 @@
   shell: echo {{ item.results.item.name }} > /tmp/x_output.csv
   args:
     executable: /bin/bash
-  with_items: "{{ result.results }}"
+  with_items: "{{ out.results }}"
   
