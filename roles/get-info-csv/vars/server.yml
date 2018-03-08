@@ -1,6 +1,6 @@
 ---
 servers:
-  - name: centos
+  - name: sdcgigdcapmdw01
     port: 22
-  - name: centos
+  - name: sdcgigdcapmdw01
     port: 80
