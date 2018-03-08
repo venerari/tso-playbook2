@@ -23,9 +23,9 @@ remote2: vm2
 port2: 443
 
 servers:
-  - name: centos
+  - name: vm1
     port: 22
-  - name: centos
+  - name: vm1
     port: 80
  
 ports:
