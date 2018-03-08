@@ -1,14 +1,14 @@
 --- 
-- name: Include file
-  include_vars: server.yml
+#- name: Include file
+#  include_vars: server.yml
   
-- name: Check if remote port
-  wait_for: host={{ item.name }} port={{ item.port }} timeout=1
-  ignore_errors: True
-  register: out
-  with_items: "{{ servers }}"
+#- name: Check if remote port
+#  wait_for: host={{ item.name }} port={{ item.port }} timeout=1
+#  ignore_errors: True
+#  register: out
+#  with_items: "{{ servers }}"
     
-- debug: var=out
+#- debug: var=out
   
 - name: Save remote port   
   #shell: printf "\n,{{ item.item.name }} port {{ item.item.port }} is {% if item.failed %}closed{% else %}open{% endif %}"  >> /tmp/x_output.csv
