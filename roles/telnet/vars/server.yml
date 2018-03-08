@@ -1,5 +1,5 @@
 ---
 servers:
-  - name: vm2
+  - name: sdcgigdcapmdw01
     port: 22
  
