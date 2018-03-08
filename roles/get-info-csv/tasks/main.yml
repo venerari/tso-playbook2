@@ -3,13 +3,13 @@
 - name: Include server firewall to check
   include_vars: server.yml
 
-- name: Get ip
+- name: Get hostname
   shell: echo {{ ansible_hostname }}  > /tmp/{{ ansible_hostname }}_data.csv
   #no_log: true
   args:
     executable: /bin/bash
 
-- name: Get hostname
+- name: Get IP
   shell: hostname -I | cut -d' ' -f1 >> /tmp/{{ ansible_hostname }}_data.csv
   args:
     executable: /bin/bash
