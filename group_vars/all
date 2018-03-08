@@ -21,12 +21,6 @@ remote1: vm1
 port1: 22
 remote2: vm2
 port2: 443
-
-servers:
-  - name: vm1
-    port: 22
-  - name: vm1
-    port: 80
  
 ports:
  - 22
