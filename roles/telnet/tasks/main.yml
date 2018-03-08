@@ -16,8 +16,8 @@
   
 - name: Save remote port   
 #  shell: printf "\n,{{ item.host }} port {{ item.port }} is {% if item.failed %}closed{% else %}open{% endif %}"  >> /tmp/{{ ansible_hostname }}_output.csv
-  #shell: echo {{ item }} > /tmp/x_output.csv
-  shell: echo 1 > /tmp/x_output.csv
+  shell: echo {{ item }} > /tmp/x_output.csv
+  #shell: echo 1 > /tmp/x_output.csv
   args:
     executable: /bin/bash
   with_items: "{{ out.results }}"
