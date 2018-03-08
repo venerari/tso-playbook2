@@ -6,7 +6,6 @@
   wait_for: host={{ item.name }} port={{ item.port }} timeout=1
   ignore_errors: True
   register: out
-  when: ansible_hostname != item.name
   with_items: "{{ servers }}"
     
 - debug: var=out
