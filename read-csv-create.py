@@ -54,5 +54,5 @@ def from_csv_to_yaml(file):
 get_para()
 from_csv_to_yaml(sys.argv[1])
 
-#run $read-csv-create.py data1.csv
+#run $read-csv-create.py input.csv
 #out will be new.yml
