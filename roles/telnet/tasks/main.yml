@@ -20,5 +20,5 @@
   shell: echo 1 > /tmp/x_output.csv
   args:
     executable: /bin/bash
-  with_items: "{{ out.results.item }}"
+  with_items: "{{ out.results }}"
   
