@@ -3,7 +3,7 @@
 - name: Include server firewall to check
   include_vars: server.yml
 
-- name: Get hostname
+- name: Get ip
   shell: echo {{ ansible_hostname }}  > /tmp/{{ ansible_hostname }}_data.csv
   #no_log: true
   args:
