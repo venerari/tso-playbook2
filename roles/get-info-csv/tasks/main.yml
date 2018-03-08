@@ -59,25 +59,15 @@
 - name: Check if remote host port
   wait_for: host={{ item.name }} port={{ item.port }} timeout=1
   ignore_errors: True
+  register: out
   with_items: "{{ servers }}"
-  #register: result
-  #shell: printf "\n,{{ item.name }} port {{ item.port }} is {% if result.failed %}closed{% else %}open{% endif %}"  >> /tmp/{{ ansible_hostname }}_output.csv
-  #args:
-  #  executable: /bin/bash
-  #when: ansible_hostname != item.name
-
-#- name: Check if remote {{ remote2 }} host port {{ port2 }}
-#  wait_for: host={{ remote2 }} port={{ port2 }} timeout=1
-#  ignore_errors: True
-#  register: result
-#  when: ansible_hostname != remote2
-
-#- name: Save result in CSV
-#  shell: printf "\n,{{ remote2 }} port {{ port2 }} is {% if result.failed %}closed{% else %}open{% endif %}"  >> /tmp/{{ ansible_hostname }}_output.csv
-#  args:
-#    executable: /bin/bash
-#  when: ansible_hostname != remote2
-
+  
+- name: Save remote port   
+  shell: printf "\n,{{ item.item.name }} port {{ item.item.port }} is {% if item.failed %}closed{% else %}open{% endif %}"  >> /tmp/{{ ansible_hostname }}_output.csv
+  args:
+    executable: /bin/bash
+  with_items: "{{ out.results }}"
+  
 - name: delete local /tmp/fetched
   shell: rm -fr /tmp/fetched/ 
   args:
