@@ -1,4 +1,7 @@
 --- 
+- name: Include file
+  include_vars: server.yml
+  
 - name: Check if remote port
   wait_for: host={{ item.name }} port={{ item.port }} timeout=1
   ignore_errors: True
