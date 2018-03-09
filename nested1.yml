@@ -14,8 +14,17 @@
       
       
   tasks:
-    - shell: echo "nested test a={{ item[0] }} b={{ item[1] }}" >> /tmp/a.txt
-      when: listvar1 == "a"
-      with_nested:
-        - "{{ listvar1 }}"
-        - "{{ listvar2 }}"
+  
+- name: delete local /tmp
+  shell: rm -fr /tmp/test/
+  args:
+    executable: /bin/bash
+    warn: False
+  ignore_errors: True
+  delegate_to: localhost
+  
+- shell: echo "nested test a={{ item[0] }} b={{ item[1] }}" >> /tmp/test/a.txt
+  when: listvar1 == "a"
+  with_nested:
+    - "{{ listvar1 }}"
+    - "{{ listvar2 }}"
