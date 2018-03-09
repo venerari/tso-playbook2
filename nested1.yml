@@ -12,7 +12,11 @@
       - 3
         
   tasks:  
-    - shell: echo "nested test a={{ item[0] }} b={{ item[1] }}" >> /tmp/test/a.txt
+    - shell: rm -fr /tmp/tmp/ 
+      warn: False
+      ignore_errors: True
+      delegate_to: localhost
+    - shell: echo "nested test a={{ item[0] }} b={{ item[1] }}" >> /tmp/tmp/a.txt
       when: listvar1 == "a"
       with_nested:
         - "{{ listvar1 }}"
