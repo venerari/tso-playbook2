@@ -1,6 +1,6 @@
 ---
 servers:
-  - name: sdcgigdcapmdw01
+  - name: vm1
     port: 22
-  - name: sdcgigdcapmdw01
-    port: 80
+  - name: vm2
+    port: 22
