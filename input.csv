@@ -1,3 +1,18 @@
-Server, Check-Server, Firewall-Port,
-sdcgigdcapmdw01,sdcgigdcapmdw02,80,
-,sdcgigdcapmdw02,22,
+Server, Check-Server, Firewall-Port
+a,b,80
+,c,22
+b,c,80
+,d,22
+c,,
+d,,
+e,a,443
+,b,22
+f,,
+g,,
+h,,
+i,d,80
+,e,80
+j,t,443
+,z,22
+k,w,80
+,z,2
