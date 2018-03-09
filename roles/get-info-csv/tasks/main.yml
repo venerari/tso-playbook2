@@ -60,19 +60,19 @@
     executable: /bin/bash
   
 - name: Check if remote host port
-  wait_for: host={{ item.name }} port={{ item.port }} timeout=1
+  wait_for: host={{ item.server2 }} port={{ item.port }} timeout=1
   ignore_errors: True
   register: out
-  when: item.name != ansible_hostname
+  when: item.server1 == ansible_hostname
   with_items: "{{ servers }}"
   
 - debug: var=out  
   
 - name: Save remote port   
-  shell: printf "\n,{{ item.item.name }} port {{ item.item.port }} is {% if item.failed %}closed{% else %}open{% endif %}"  >> /tmp/{{ ansible_hostname }}_output.csv
+  shell: printf "\n,{{ item.item.server2 }} port {{ item.item.port }} is {% if item.failed %}closed{% else %}open{% endif %}"  >> /tmp/{{ ansible_hostname }}_output.csv
   args:
     executable: /bin/bash
-  when: item.item.name != ansible_hostname
+  when: item.item.server1 == ansible_hostname
   with_items: "{{ out.results }}"
   
 - name: delete local /tmp/fetched
