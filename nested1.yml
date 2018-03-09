@@ -17,4 +17,4 @@
     - shell: echo "nested test a={{ item[0] }} b={{ item[1] }}" >> /tmp/a.txt
       with_nested:
         - "{{ listvar1 }}"
-        - listvar2
+        - "{{ listvar1 }}"
