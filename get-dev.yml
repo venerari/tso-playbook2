@@ -1,0 +1,13 @@
+---
+
+- hosts: all
+  become: true
+
+- name: Get Disk Info ***disk-calculation***  
+  #calculation will be wrong if there's a disk with MB
+  shell: fdisk -l|grep /dev/sd > disk 
+  register: out
+  args:
+    executable: /bin/bash
+    
+- debug: out    
