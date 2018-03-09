@@ -11,10 +11,9 @@
       - 2
       - 3
         
-  tasks:
-  
-- shell: echo "nested test a={{ item[0] }} b={{ item[1] }}" >> /tmp/test/a.txt
-  when: listvar1 == "a"
-  with_nested:
-    - "{{ listvar1 }}"
-    - "{{ listvar2 }}"
+  tasks:  
+    - shell: echo "nested test a={{ item[0] }} b={{ item[1] }}" >> /tmp/test/a.txt
+      when: listvar1 == "a"
+      with_nested:
+        - "{{ listvar1 }}"
+        - "{{ listvar2 }}"
