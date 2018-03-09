@@ -18,7 +18,7 @@
       ignore_errors: True
       delegate_to: localhost
     - shell: echo "nested test a={{ item[0] }} b={{ item[1] }}" >> /tmp/a.txt
-      #when: listvar1 == "a"
+      when: listvar1 == "a"
       with_nested:
         - "{{ listvar1 }}"
         - "{{ listvar2 }}"
