@@ -4,11 +4,17 @@
 - hosts: all
   vars:
     listvar1:
-    - 'a'
-    - 'b'
-    - 'c'
+      - a
+      - b
+      - c
+    listvar2:
+      - 1
+      - 2
+      - 3
+      
+      
   tasks:
     - shell: echo "nested test a={{ item[0] }} b={{ item[1] }}" >> /tmp/a.txt
       with_nested:
-        - [ a, b, c ]
-        - [ 1, 2, 3 ]
+        - listvar1
+        - listvar2
