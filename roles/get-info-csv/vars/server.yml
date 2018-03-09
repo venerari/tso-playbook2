@@ -1,26 +1,8 @@
 ---
 servers:
-  - server1: ServerA
-    server2: ServerB
-    port: 80
-  - server1: ServerA
-    server2: ServerB
-    port: 9999
-  - server1: ServerA
-    server2: ServerC
-    port: 8443
-  - server1: ServerB
-    server2: ServerC
-    port: 8080
-  - server1: ServerB
-    server2: ServerD
-    port: 9999
-  - server1: ServerC
-    server2: ServerF
-    port: 8443
-  - server1: ServerC
-    server2: ServerI
-    port: 8888
-  - server1: ServerE
-    server2: ServerH
+  - server1: ansible
+    server2: centos1
+    port: 22
+  - server1: ansible
+    server2: centos1
     port: 80
