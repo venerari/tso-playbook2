@@ -3,9 +3,9 @@
 - hosts: all
   vars:
     listvar1:
-      - "a"
-      - "b"
-      - "c"
+      - a
+      - b
+      - c
     listvar2:
       - 1
       - 2
