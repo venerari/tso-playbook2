@@ -8,7 +8,7 @@
     - 'b'
     - 'c'
   tasks:
-    - shell: echo "nested test a={{ item[0] }} b={{ item[1] }}"
+    - shell: echo "nested test a={{ item[0] }} b={{ item[1] }}" > a.txt
       with_nested:
         - listvar1
         - [ 1, 2, 3 ]
