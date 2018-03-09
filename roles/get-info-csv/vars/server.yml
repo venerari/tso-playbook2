@@ -1,6 +1,8 @@
 ---
 servers:
-  - name: vm1
+  - server1: vm1
+    server2: vm2
     port: 22
-  - name: vm2
-    port: 22
+  - server1: vm1
+    server2: vm2
+    port: 80
