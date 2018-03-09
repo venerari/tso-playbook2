@@ -13,8 +13,7 @@
         
   tasks:
   
-- name: delete local /tmp
-  shell: rm -fr /tmp/test/
+- shell: rm -fr /tmp/test/
   args:
     executable: /bin/bash
     warn: False
