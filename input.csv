@@ -1,3 +1,7 @@
 Hostname,Check-Host,Port,IPAddress,CPUCore,RAM,Disk
 sdcgigdcapmdw01,sdcgigdcapmdw02,80,10.193.176.5,4,28,765
 sdcgigdcapmdw02,,,10.193.176.6,4,28,765
+sdcgigdcapmdw03,sdcgigdcapmdw04,8080,10.193.176.5,4,28,765
+,sdcgigdcapmdw01,80,10.193.176.5,4,28,765
+sdcgigdcapmdw04,,,10.193.176.6,4,28,765
+
