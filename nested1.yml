@@ -1,6 +1,6 @@
 ---
 
-- hosts: all
+- hosts: centos1
   become: true
   vars:
     listvar1:

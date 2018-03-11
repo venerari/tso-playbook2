@@ -31,10 +31,22 @@
 
 - name: Get Disk Info ***disk-calculation***  
   #calculation will be wrong if there's a disk with MB
-  #and /dev/vd is used instead of /dev/sd
+  shell: fdisk -l|grep /dev/ > disk && awk 'NR==1{print $2}' disk 
+  args:
+    executable: /bin/bash
+  register: out  
+    
+- name: Get Disk Info ***disk-calculation***  
   shell: fdisk -l|grep /dev/sd > disk && awk '/Disk \/dev\/sd/ {print $3}' disk  > disk2
   args:
     executable: /bin/bash
+  when: out.stdout ==  "/dev/sda:"
+
+- name: Get Disk Info ***disk-calculation***  
+  shell: fdisk -l|grep /dev/vd > disk && awk '/Disk \/dev\/vd/ {print $3}' disk  > disk2
+  args:
+    executable: /bin/bash
+  when: out.stdout ==  "/dev/vda:"
 
 - name: Get how many disk ***disk-calculation***
   shell: cat disk2 | wc -l
@@ -45,7 +57,7 @@
 - name: Calculate the sum of disks ***disk-calculation***
   shell: awk '{sum+=$1} (NR%{{countline.stdout}})==0{print sum}' disk2 >> /tmp/{{ ansible_hostname }}_data.csv
   args:
-    executable: /bin/bash 
+    executable: /bin/bash     
   
 - name: delete csv
   shell: rm -f /tmp/{{ ansible_hostname }}_output.csv
