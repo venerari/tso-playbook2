@@ -26,4 +26,4 @@ awk -F',' 'FNR > 1 { print "sshpass -p $(cat secret) ssh-copy-id -o StrictHostKe
 #change it to executable
 chmod u+x sshcopy
 #run it
-./sshcopy
+#./sshcopy
