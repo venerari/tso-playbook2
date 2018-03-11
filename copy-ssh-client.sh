@@ -24,7 +24,8 @@ fi
 #prepare to connect to each server so that ansible can penetrate the remote server
 #prepare the template script sshcopy
 #if you are using password with sudo, use below instead and add the password,
-awk -F',' -v password='$pass' 'FNR > 1 { print "sshpass -p 'BEGIN{print password}' ssh-copy-id -o StrictHostKeyChecking=no " $1 }' input.csv > sshcopy
+awk -F',' 'FNR > 1 { print "sshpass -p 'password' ssh-copy-id -o StrictHostKeyChecking=no " $1 }' input.csv > sshcopy
+# -v password='$pass'
 #change it to executable
 chmod u+x sshcopy
 #run it
