@@ -7,6 +7,8 @@ if [ ! -f secret ]; then
    exit 1
 fi
 
+pass=$(cat secret)
+
 #create the repo & install extra repo
 if [ ! -f /etc/yum.repos.d/centos.repo ]; then
     sudo sh -c 'echo -e "[centos]\nname=CentOS $releasever - $basearch\nbaseurl=http://mirror.centos.org/centos/7/os/\$basearch/\nenabled=1\ngpgcheck=1\ngpgkey=http://mirror.centos.org/centos/7/os/\$basearch/RPM-GPG-KEY-CentOS-7" > /etc/yum.repos.d/centos.repo'
@@ -22,7 +24,7 @@ fi
 #prepare to connect to each server so that ansible can penetrate the remote server
 #prepare the template script sshcopy
 #if you are using password with sudo, use below instead and add the password,
-awk -F',' 'FNR > 1 { print "sshpass -p $(cat secret) ssh-copy-id -o StrictHostKeyChecking=no " $1 }' input.csv > sshcopy
+awk -F',' 'FNR > 1 { print "sshpass -p $pass ssh-copy-id -o StrictHostKeyChecking=no " $1 }' input.csv > sshcopy
 #change it to executable
 chmod u+x sshcopy
 #run it
