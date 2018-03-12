@@ -24,12 +24,12 @@ sudo yum install sshpass -y
 #grab first column and ignore first row
 awk -F',' 'FNR > 1 { print  $1 }' input.csv > sshcopy
 #remove empty lines
-awk NF sshcopy > sshcopy2
+awk NF sshcopy > hosts
 #generate the sshpass
-awk -v password="$pass" '{print "sshpass -p " password " ssh-copy-id -o StrictHostKeyChecking=no " $1}' sshcopy2 > sshcopy
+awk -v password="$pass" '{print "sshpass -p " password " ssh-copy-id -o StrictHostKeyChecking=no " $1}' hosts > sshcopy
 # -v password='$pass'
 
 #change it to executable
 chmod u+x sshcopy
 #run it
-#./sshcopy
+./sshcopy
