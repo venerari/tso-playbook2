@@ -28,16 +28,16 @@ def from_csv_to_yaml(file):
           src_server=csv_content.split(',')[0]
           dest_server=csv_content.split(',')[1]
           the_port=csv_content.split(',')[2] 
-          f.write(' - Server1: %s\n' % src_server)
-          f.write('   Server2: %s\n' % dest_server)
+          f.write(' - server1: %s\n' % src_server)
+          f.write('   server2: %s\n' % dest_server)
           f.write('   port: %s\n' % the_port)
         elif (len(csv_content.split(',')[0]) == 0 )and (len(csv_content.split(',')[1]) >0 ):
           print (csv_content.split(',')[1])
           #print ("AAAAAAAAAAAAA")    
           dest_server=csv_content.split(',')[1]
           the_port=csv_content.split(',')[2]
-          f.write(' - Server1: %s\n' % src_server)
-          f.write('   Server2: %s\n' % dest_server)
+          f.write(' - server1: %s\n' % src_server)
+          f.write('   server2: %s\n' % dest_server)
           f.write('   port: %s\n' % the_port)
 
           #f.write('        - %s\n' % csv_content.split(',')[2])
