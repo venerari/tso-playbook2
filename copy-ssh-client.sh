@@ -26,7 +26,7 @@ awk -F',' 'FNR > 1 { print  $1 }' input.csv > sshcopy
 #remove empty lines
 awk NF sshcopy > sshcopy2
 #generate the sshpass
-awk -v password="$pass" '{print "sshpass -p " password " sh-copy-id -o StrictHostKeyChecking=no " $1}' sshcopy2 > sshcopy
+awk -v password="$pass" '{print "sshpass -p " password " ssh-copy-id -o StrictHostKeyChecking=no " $1}' sshcopy2 > sshcopy
 # -v password='$pass'
 
 #change it to executable
