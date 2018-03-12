@@ -10,7 +10,7 @@
     executable: /bin/bash
     
 - name: Put two columns
-  shell: echo ,,,  > /tmp/{{ ansible_hostname }}_data.csv
+  shell: echo ,,,  >> /tmp/{{ ansible_hostname }}_data.csv
   #no_log: true
   args:
     executable: /bin/bash    
