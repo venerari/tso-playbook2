@@ -76,7 +76,7 @@
   ignore_errors: True
   register: out
   when: item.server1 == ansible_hostname
-  with_items: "{{ servers }}"
+  with_items: "{{ Servers }}"
   
 - debug: var=out  
   
