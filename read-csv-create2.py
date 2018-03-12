@@ -16,7 +16,7 @@ def from_csv_to_yaml(file):
     # Creates the output file named fixture.yaml
     f = open('server.yml', 'w')
     f.write("---\n")
-    f.write("Servers:\n")
+    f.write("servers:\n")
     for i, row in enumerate(freader):
         #print (i)
         #print (row)
