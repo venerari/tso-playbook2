@@ -116,7 +116,8 @@ if __name__ == '__main__':
                         output_dict = {'Hostname input': host_input, 'Hostname output': "", 'IP input': "", 'IP fact': "", 'CPU core input': "", 'CPU core fact': "", 'RAM input': "", 'RAM fact': "", 'Disk input': "", 'Disk fact': "", 'Message': msg}
                         output_list.append(output_dict)
         ###print (time.strftime("%d/%m/%Y"))
-        output_file = "validation_" + time.strftime("%d%m%Y-%H%M") + ".csv"
+        #output_file = "validation_" + time.strftime("%d%m%Y-%H%M") + ".csv"
+        output_file = "output.csv"
         with open(output_file, 'w') as csvfile_output:      
             fieldnames = ['Hostname input', 'Hostname output', 'IP input', 'IP fact', 'CPU core input', 'CPU core fact', 'RAM input', 'RAM fact', 'Disk input', 'Disk fact', 'Message']
             writer_output = csv.DictWriter(csvfile_output, fieldnames=fieldnames)
