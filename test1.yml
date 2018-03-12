@@ -7,7 +7,7 @@
     - name: put to current dir
       fetch:
          src: /tmp/fetched/main_output.csv
-         dest: ~/
+         dest: ~/main_output.csv
       run_once: true
       delegate_to: localhost    
     
