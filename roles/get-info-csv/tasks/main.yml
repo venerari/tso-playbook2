@@ -8,7 +8,17 @@
   #no_log: true
   args:
     executable: /bin/bash
-     
+
+- name: Put blank
+  shell: echo " "  > /tmp/{{ ansible_hostname }}_data.csv
+  args:
+    executable: /bin/bash
+
+- name: Put blank
+  shell: echo " "  > /tmp/{{ ansible_hostname }}_data.csv
+  args:
+    executable: /bin/bash
+
 - name: Get IP
   shell: hostname -I | cut -d' ' -f1 >> /tmp/{{ ansible_hostname }}_data.csv
   args:
