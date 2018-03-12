@@ -1,1 +1,13 @@
 ---
+
+- hosts: centos1
+  become: true
+
+  tasks:  
+    - name: put to current dir
+      fetch:
+         src: /tmp/fetched/main_output.csv
+         dest: .
+      run_once: true
+      delegate_to: localhost    
+    
