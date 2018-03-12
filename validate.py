@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 # this will be based in individual fact files, e.g., sdcgigdcapmdw01_output.csv
 import csv
 import os.path
