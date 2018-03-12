@@ -9,6 +9,5 @@ sudo curl https://raw.githubusercontent.com/venerari/tso-playbook/master/run-fir
 
 Create the sshcopy script to run to all the client, make sure input.csv already exist.
 ```
-sudo curl https://raw.githubusercontent.com/venerari/tso-playbook/master/create-inventory.sh | /bin/bash
+sudo curl https://raw.githubusercontent.com/venerari/tso-playbook/master/copy-ssh-client.sh | /bin/bash
 ```
-
