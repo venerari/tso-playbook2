@@ -17,7 +17,11 @@ Create the sshcopy script to run to all the client, make sure input.csv already 
 sudo curl https://raw.githubusercontent.com/venerari/tso-playbook/master/run-2.sh | /bin/bash
 ```
 
-Now run to get the validation csv,
+Generate the data from remote hosts,
 ```
 sudo curl https://raw.githubusercontent.com/venerari/tso-playbook/master/run-3.sh | /bin/bash
+```
+Now run to get the validation csv on the console.
+```
+./validate.py 
 ```
