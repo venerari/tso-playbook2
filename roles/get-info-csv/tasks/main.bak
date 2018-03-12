@@ -1,0 +1,115 @@
+---
+
+- name: Include server firewall to check
+  include_vars: server.yml
+
+- name: Get hostname
+  shell: echo {{ ansible_hostname }}  > /tmp/{{ ansible_hostname }}_data.csv
+  #no_log: true
+  args:
+    executable: /bin/bash
+
+- name: Get IP
+  shell: hostname -I | cut -d' ' -f1 >> /tmp/{{ ansible_hostname }}_data.csv
+  args:
+    executable: /bin/bash
+
+- name: Get cpu core
+  shell: nproc >> /tmp/{{ ansible_hostname }}_data.csv
+  args:
+    executable: /bin/bash
+
+- name: Get memory ***memory-caluculation***
+  shell: awk '/MemTotal/ {print $2}' /proc/meminfo > memory
+  args:
+    executable: /bin/bash
+
+- name: Get memory in GB ***memory-caluculation***
+  shell: awk '{ print $1/1000000}' memory >> /tmp/{{ ansible_hostname }}_data.csv
+  args:
+    executable: /bin/bash
+
+- name: Get Disk Info ***disk-calculation***  
+  #calculation will be wrong if there's a disk with MB
+  shell: fdisk -l|grep /dev/ > disk && awk 'NR==1{print $2}' disk 
+  args:
+    executable: /bin/bash
+  register: out  
+    
+- name: Get Disk Info ***disk-calculation***  
+  shell: fdisk -l|grep /dev/sd > disk && awk '/Disk \/dev\/sd/ {print $3}' disk  > disk2
+  args:
+    executable: /bin/bash
+  when: out.stdout ==  "/dev/sda:"
+
+- name: Get Disk Info ***disk-calculation***  
+  shell: fdisk -l|grep /dev/vd > disk && awk '/Disk \/dev\/vd/ {print $3}' disk  > disk2
+  args:
+    executable: /bin/bash
+  when: out.stdout ==  "/dev/vda:"
+
+- name: Get how many disk ***disk-calculation***
+  shell: cat disk2 | wc -l
+  args:
+    executable: /bin/bash
+  register: countline
+
+- name: Calculate the sum of disks ***disk-calculation***
+  shell: awk '{sum+=$1} (NR%{{countline.stdout}})==0{print sum}' disk2 >> /tmp/{{ ansible_hostname }}_data.csv
+  args:
+    executable: /bin/bash     
+  
+- name: delete csv
+  shell: rm -f /tmp/{{ ansible_hostname }}_output.csv
+  args:
+    executable: /bin/bash
+    warn: false
+  ignore_errors: True
+
+- name: Put it in CSV in one line
+  shell: cat /tmp/{{ ansible_hostname }}_data.csv | awk '{print}' ORS=','  > /tmp/{{ ansible_hostname }}_output.csv
+  args:
+    executable: /bin/bash
+  
+- name: Check if remote host port
+  wait_for: host={{ item.server2 }} port={{ item.port }} timeout=1
+  ignore_errors: True
+  register: out
+  when: item.server1 == ansible_hostname
+  with_items: "{{ servers }}"
+  
+- debug: var=out  
+  
+- name: Save remote port   
+  shell: printf "\n,{{ item.item.server2 }} port {{ item.item.port }} is {% if item.failed %}closed{% else %}open{% endif %}"  >> /tmp/{{ ansible_hostname }}_output.csv
+  args:
+    executable: /bin/bash
+  when: item.item.server1 == ansible_hostname
+  with_items: "{{ out.results }}"
+  
+- name: delete local /tmp/fetched
+  shell: rm -fr /tmp/fetched/ 
+  args:
+    executable: /bin/bash
+    warn: False
+  ignore_errors: True
+  delegate_to: localhost
+    
+- name: Fetching file
+  fetch:
+    src: /tmp/{{ ansible_hostname }}_output.csv
+    dest: /tmp/fetched
+
+- name: Run once on localhost
+  shell: echo 'Hostname,IP,CPU-Core,Ram-GB,Disk-GB' > /tmp/fetched/main_output.csv 
+  run_once: True
+  delegate_to: localhost    
+
+- name: Combined to one file
+  shell: cat /tmp/fetched/{{ ansible_hostname }}/tmp/{{ ansible_hostname }}_output.csv >> /tmp/fetched/main_output.csv && printf '\r\n' >> /tmp/fetched/main_output.csv
+  args:
+    executable: /bin/bash
+  delegate_to: localhost   
+
+
+ 
