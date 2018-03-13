@@ -1,5 +1,0 @@
----
-- name: add dns
-  copy: src=resolv.j2 dest=/etc/resolv.conf
-  tags: dns
-  notify: restart network service

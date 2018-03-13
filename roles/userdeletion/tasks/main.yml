@@ -1,7 +1,0 @@
----
-- name: Deleting the users.
-  user:
-    name: "{{ sname }}"
-    state: absent
-    remove: yes
-    force: yes

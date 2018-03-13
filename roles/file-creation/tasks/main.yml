@@ -1,3 +1,0 @@
----
-- name: create a file
-  file: path=/root/text1.txt state=touch owner=root group=root mode=0644

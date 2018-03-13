@@ -1,8 +1,0 @@
----
-- name: List Software
-  yum:
-    list={{ software }}
-  register: yum_packages
-
-- debug:
-    var: yum_packages
