@@ -1,0 +1,4 @@
+Hostname input,Hostname output,IP input,IP fact,CPU core input,CPU core fact,RAM input,RAM fact,Disk input,Disk fact,Message
+centos1,centos1,10.193.176.5,192.168.122.170,1,1,2,1.01626,20,21.5,| IP address from input does not match value from fact file.|RAM from input does not match value from fact file.| Disk size from input does not match value from fact file.
+,,,,,,,,,,
+ansible,ansible,10.193.176.6,192.168.122.136,2,2,4,3.88173,60,85.9,| IP address from input does not match value from fact file.|RAM from input does not match value from fact file.| Disk size from input does not match value from fact file.
