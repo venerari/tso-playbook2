@@ -14,7 +14,7 @@ sudo curl https://github.com/BeyondTrust/pbis-open/releases/download/8.5.7/pbis-
 
 Create the sshcopy script to run to all the client, make sure input.csv already exist.
 ```
-sudo curl https://raw.githubusercontent.com/venerari/tso-playbook/master/run-2.sh | /bin/bash
+curl https://raw.githubusercontent.com/venerari/tso-playbook/master/run-2.sh | /bin/bash
 ```
 
 Generate the data from remote hosts,
